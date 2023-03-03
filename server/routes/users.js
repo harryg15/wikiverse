@@ -30,4 +30,20 @@ router.get("/:userId", async (req, res, next) => {
   }
 });
 
+// DELETE /users/:id
+router.delete("/:id", async (req, res, next) => {
+  try {
+    await User.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+
+    const pages = await User.findAll();
+    res.send(pages);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
