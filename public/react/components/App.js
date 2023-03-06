@@ -31,7 +31,7 @@ export const App = () => {
 			<h2>An interesting 📚</h2>
 			<PagesList pages={pages} /><br></br>
 			<button onClick={() => setIsAddingPage(!isAddingPage)}>Click Here To Create A Post</button>
-			{isAddingPage && <Form />}
+			{isAddingPage && <Form fetchPages={fetchPages}/>}
 		</main>
 	)
 }

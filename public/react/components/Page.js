@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const Page = (props) => {
+export const Page = ({page}) => {
+  const [moreInfo, setMoreInfo] = useState(false)
 
   return <>
-    <h3>{props.page.title}</h3>
+    <h3 className="title" onClick={() => setMoreInfo(!moreInfo)}>{page.title}</h3>
+    {moreInfo && <p>{page.content}</p>}
   </>
 } 
 	

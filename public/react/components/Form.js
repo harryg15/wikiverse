@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-export const Form = () => {
-	const [submitting, setSubmitting] = useState(false)
+export const Form = ({fetchPages}) => {
     const [postInfo, setPostInfo] = useState({
         name: "",
         email: "",
@@ -23,6 +22,7 @@ export const Form = () => {
         console.log(data)
 
         setPostInfo({name: "", email: "", title: "", content: "", tags: ""})
+        fetchPages()
     }
 
     async function handleChange(e) {
